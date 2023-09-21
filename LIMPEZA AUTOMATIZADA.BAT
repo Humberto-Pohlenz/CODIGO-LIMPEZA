@@ -1,0 +1,69 @@
+@echo off
+Title Auto-Limpeza
+setlocal
+
+:: Define a cor azul (código de cor 03)
+color 03
+
+:: Executa o utilitário "cleanmgr" para limpar os arquivos temporários
+echo Limpando arquivos temporários...
+cleanmgr /sageset:1
+cleanmgr /sagerun:1
+
+:: Aguarda 3 segundos antes de continuar
+timeout /t 3
+
+:: Limpa a pasta %Temp%
+echo Limpando a pasta %Temp%...
+rmdir /q /s %temp%
+
+:: Aguarda mais 3 segundos antes de continuar
+timeout /t 3
+
+:: Limpa a pasta Temp 
+echo Limpando a pasta TEMP...
+rmdir /q /s C:\Windows\Temp
+
+:: Limpa a Lixeira
+echo Limpando a Lixeira...
+rd /s /q C:\$Recycle.Bin
+
+:: Abre o Google Chrome com suas páginas de início personalizadas
+start chrome "coloque aqui seu link da pagina nao retire o parenteses" 
+
+:: Altera a cor das mensagens para rosa (código de cor 0D)
+call :setColor D
+
+:: Exibe a mensagem final com um temporizador de 5 segundos
+echo.
+echo Limpeza Concluída
+echo Estamos Quase Lá!!!
+timeout /t 5 > nul
+
+:: Exibe o relógio funcional
+Title Fim Limpeza
+@mode con cols=60 lines=15
+color 02
+
+
+:main
+cls
+echo.
+echo Time: %time%
+echo.
+echo Date: %date%
+echo.
+echo Iniciando temporizador para %tempo_segundos% segundos...
+ping -n %tempo_segundos% 2 0.0.0.0 > nul
+echo Limpeza Concluida com Sucesso!
+
+:: Mantém o Prompt de Comando aberto até que o usuário pressione qualquer tecla
+pause
+
+:end
+endlocal
+
+:: Define a cor do texto usando echoColor (utilitário de terceiros)
+:setColor
+echoColor %1
+goto :eof 
