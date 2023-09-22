@@ -53,7 +53,6 @@ echo Time: %time%
 echo.
 echo Date: %date%
 echo.
-echo Iniciando temporizador para %tempo_segundos% segundos...
 ping -n %tempo_segundos% 2 0.0.0.0 > nul
 echo Limpeza Concluida com Sucesso!
 
