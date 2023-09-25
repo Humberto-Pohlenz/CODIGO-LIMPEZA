@@ -29,7 +29,7 @@ echo Limpando a Lixeira...
 rd /s /q C:\$Recycle.Bin
 
 :: Abre o Google Chrome com suas páginas de início personalizadas
-start chrome "coloque aqui seu link da pagina nao retire o parenteses" 
+start chrome "put your url" 
 
 :: Altera a cor das mensagens para rosa (código de cor 0D)
 call :setColor D
