@@ -54,7 +54,7 @@ echo.
 echo Date: %date%
 echo.
 echo Iniciando temporizador para %tempo_segundos% segundos...
-ping -n %tempo_segundos% 2 0.0.0.0 > nul
+ping -n 2 0.0.0.0 > nul
 echo Limpeza Concluida com Sucesso!
 
 :: Mantém o Prompt de Comando aberto até que o usuário pressione qualquer tecla
